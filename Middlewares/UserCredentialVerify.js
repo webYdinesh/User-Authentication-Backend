@@ -19,6 +19,12 @@ exports.usercredentialVerify = (req, res, next) => {
       message: "phone number is empty",
     });
   }
+    if (phone.length !== 10) {
+    return res.status(400).json({
+      status: 400,
+      message: "phone number must have 10 digits",
+    });
+  }
   if (!password) {
     return res.status(400).json({
       status: 400,
