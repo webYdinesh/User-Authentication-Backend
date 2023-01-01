@@ -15,7 +15,7 @@ app.use(cookieParser());
 app.use(
   cors({
     credentials: true,
-    origin: "https://user-authentication-backend-webxdinesh.vercel.app/",
+    origin: true,
   })
 );
 //connect DB
