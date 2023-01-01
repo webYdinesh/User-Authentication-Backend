@@ -49,7 +49,6 @@ exports.userLogin = async (req, res) => {
     const token = generateToken(existingUser._id);
     res.cookie(String(existingUser._id), token, {
       expires: new Date(Date.now() + 30 * 24 * 60 * 60 * 1000),
-      path: "/",
       httpOnly: true,
       sameSite: "lax",
     });
