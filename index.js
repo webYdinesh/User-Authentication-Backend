@@ -12,7 +12,12 @@ dotenv.config({ path: "./Config/.env" });
 //cookieParser
 app.use(cookieParser());
 //cors
-app.use(cors({ credentials: true, origin: true }));
+app.use(
+  cors({
+    credentials: true,
+    origin: "https://user-authentication-backend-webxdinesh.vercel.app/",
+  })
+);
 //connect DB
 connectDB(process.env.DBURI);
 //BodyParse
@@ -22,7 +27,7 @@ app.use(express.json());
 app.use("/api", MainRouter);
 //Entry Point
 app.use("/", (req, res) => {
-  res.send("<h1> Website Is Working Fine. Click Here To Visit </h1>");
+  res.send("<h1>This Website Is Working Fine. Click Here To Visit </h1>");
 });
 //Listen
 app.listen(process.env.PORT, () => {
