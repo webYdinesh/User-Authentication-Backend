@@ -47,6 +47,10 @@ exports.userLogin = async (req, res) => {
     }
     //if Password CORRECT
     const token = generateToken(existingUser._id);
+    res.header({
+      "Access-Control-Allow-Credentials": true,
+      "Access-Control-Allow-Headers": "*",
+    });
     res.cookie(String(existingUser._id), token, {
       expires: new Date(Date.now() + 30 * 24 * 60 * 60 * 1000),
       httpOnly: true,
